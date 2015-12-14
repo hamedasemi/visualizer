@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="main.css">
+	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+</head>
+
+<body>
+	<div id="one">
+		<div id="container"></div>
+	</div>
+
+	<svg width="600px" height="520" viewBox="80 40 300 400">
+		<path id="my-wave" class="wave" fill="rgba(100,100,100,.3)" stroke="#fff" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" />
+		<animate 
+			xlink:href="#my-wave"
+			attributeName="d"
+			from="[50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50]"
+			repeatCount="indefinite"/>
+	</svg>
+	
+	<script src="main.js"></script>
+</body>
+
+</html>
