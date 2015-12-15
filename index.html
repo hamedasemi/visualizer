@@ -37,7 +37,7 @@
 						<feMergeNode in="SourceGraphic" />
 					</feMerge>
 				</filter>
-				<animate id="animate" begin="0" xlink:href="#my-wave" attributeName="d" fill="remove" dur="1950ms" repeatCount="indefinite"
+				<animate id="animate" begin="0" xlink:href="#my-wave" attributeName="d" fill="remove" dur="1650ms" repeatCount="indefinite"
 				from="M 0 100 S 22 100 37 100 S 59 100 74 100 S 97 100 112 100 S 134 100 149 100 S 171 100 186 100 S 209 100 224 100 S 246 100 261 100 S 283 100 298 100"
 				to="M 0 100 S 22 100 37 100 S 59 100 74 100 S 97 100 112 100 S 134 100 149 100 S 171 100 186 100 S 209 100 224 100 S 246 100 261 100 S 283 100 298 100"
 				values="
@@ -49,29 +49,22 @@
 					M 0 100 S 22 100 37 100 S 59 100 74 100 S 97 100 112 100 S 134 100 149 100 S 171 100 186 100 S 209 100 224 100 S 246 100 261 100 S 283 100 298 100;
 					M 0 100 S 22 100 37 100 S 59 110  74 110  S 97 30 112 30 S 134 150 149 150 S 171 30  186 30 S 209 110  224 110  S 246 100 261 100 S 283 100 298 100;
 					M 0 100 S 22 100 37 100 S 59 100 74 100 S 97 100 112 100 S 134 100 149 100 S 171 100 186 100 S 209 100 224 100 S 246 100 261 100 S 283 100 298 100
-				" keyTimes="0;.1;.2;.3;.4;.6;.8;1" />
+				" keyTimes="0;.1;.2;.3;.4;.5;.6;.7;.8;.9;1" />
 
 				<animate begin="0" xlink:href="#he" attributeName="dx" fill="remove" dur="4850ms" repeatCount="indefinite" from="0" to="0"
-				values="
-				1;40;3;10;5;60;4;-60
-				" keyTimes="0;.1;.2;.3;.4;.6;.8;1" />
+				values="1;40;3;0;10;10;0;5;60;4;-60" keyTimes="0;.1;.2;.3;.4;.5;.6;.7;.8;.9;1" />
 
 				<animate begin="0" xlink:href="#she" attributeName="dx" fill="remove" dur="2250ms" repeatCount="indefinite" from="0" to="0"
-				values="
-				0;30;0;50;-40;0;40;0
-				" keyTimes="0;.1;.2;.3;.4;.6;.9;1" />
+				values="0;30;0;-10;0;50;0;-40;0;40;0" keyTimes="0;.1;.2;.3;.4;.5;.6;.7;.8;.9;1" />
 			</defs>
 
 			<g filter="url(#f3)">
-				<path id="my-wave" filter="url(#f2)" class="wave" fill="rgba(100,100,100,.3)" stroke="#fff" stroke-width="1" stroke-linejoin="round"
+				<path id="my-wave" filter="url(#f2)" class="wave" fill="rgba(100,0,100,.2)" stroke="#fff" stroke-width="1" stroke-linejoin="round"
 				stroke-linecap="round" />
 			</g>
 		</svg>
 	</div>
-
-
-
-
+	
 	<script src="main.js"></script>
 </body>
 
