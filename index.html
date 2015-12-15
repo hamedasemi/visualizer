@@ -9,19 +9,71 @@
 </head>
 
 <body>
-	<div id="one">
-		<div id="container"></div>
+	<div class="container">
+		<svg width="100%" height="100%" viewBox="0 0 300 200">
+
+			<defs>
+				<filter id="f2" width="200%" height="200%">
+					<feOffset id="he" result="offOut" in="SourceGraphic" dx="0" dy="0" />
+					<feGaussianBlur stdDeviation="1" />
+					<feBlend in="SourceGraphic" />
+					<feComponentTransfer>
+						<feFuncA type="linear" slope="0.3" />
+					</feComponentTransfer>
+					<feMerge>
+						<feMergeNode/>
+						<feMergeNode in="SourceGraphic" />
+					</feMerge>
+				</filter>
+				<filter id="f3" width="200%" height="200%">
+					<feOffset id="she" result="offOut" in="SourceGraphic" dx="10" dy="0" />
+					<feGaussianBlur stdDeviation="0" />
+					<feBlend in="SourceGraphic" />
+					<feComponentTransfer>
+						<feFuncA type="linear" slope="0.5" />
+					</feComponentTransfer>
+					<feMerge>
+						<feMergeNode/>
+						<feMergeNode in="SourceGraphic" />
+					</feMerge>
+				</filter>
+				<animate id="animate" begin="0" xlink:href="#my-wave" attributeName="d" fill="remove" dur="1950ms" repeatCount="indefinite"
+				from="M 0 100 S 22 100 37 100 S 59 100 74 100 S 97 100 112 100 S 134 100 149 100 S 171 100 186 100 S 209 100 224 100 S 246 100 261 100 S 283 100 298 100"
+				to="M 0 100 S 22 100 37 100 S 59 100 74 100 S 97 100 112 100 S 134 100 149 100 S 171 100 186 100 S 209 100 224 100 S 246 100 261 100 S 283 100 298 100"
+				values="
+				M 0 100 S 22 100 37 100 S 59 100 74 100 S 97 100 112 100 S 134 100 149 100 S 171 100 186 100 S 209 100 224 100 S 246 100 261 100 S 283 100 298 100;
+				M 0 100 S 22 100 37 100 S 59 100 74 100 S 97 100 112 100 S 134 100 149 100 S 171 100 186 100 S 209 100 224 100 S 246 100 261 100 S 283 100 298 100;
+				M 0 100 S 22 100 37 100 S 59 110 74 110 S 97 70  112 70  S 134 170 149 170 S 171 70  186 70  S 209 110 224 110 S 246 100 261 100 S 283 100 298 100;
+
+				M 0 100 S 22 100 37 100 S 59 110  74 110  S 97 30 112 30 S 134 50 149 50 S 171 30  186 30 S 209 110  224 110  S 246 100 261 100 S 283 100 298 100;
+				M 0 100 S 22 100 37 100 S 59 80  74 80  S 97 130 112 130 S 134 30  149 30  S 171 130 186 130 S 209 80  224 80  S 246 100 261 100 S 283 100 298 100;
+				M 0 100 S 22 100 37 100 S 59 100 74 100 S 97 100 112 100 S 134 100 149 100 S 171 100 186 100 S 209 100 224 100 S 246 100 261 100 S 283 100 298 100;
+				
+				M 0 100 S 22 100 37 100 S 59 110  74 110  S 97 30 112 30 S 134 150 149 150 S 171 30  186 30 S 209 110  224 110  S 246 100 261 100 S 283 100 298 100;
+				M 0 100 S 22 100 37 100 S 59 100 74 100 S 97 100 112 100 S 134 100 149 100 S 171 100 186 100 S 209 100 224 100 S 246 100 261 100 S 283 100 298 100
+				" keyTimes="0;.1;.2;.3;.4;.6;.8;1" />
+
+				<animate begin="0" xlink:href="#he" attributeName="dx" fill="remove" dur="4850ms" repeatCount="indefinite" from="0" to="0"
+				values="
+				1;40;3;10;5;60;4;-60
+				" keyTimes="0;.1;.2;.3;.4;.6;.8;1" />
+
+				<animate begin="0" xlink:href="#she" attributeName="dx" fill="remove" dur="2250ms" repeatCount="indefinite" from="0" to="0"
+				values="
+				0;30;0;50;-40;0;40;0
+				" keyTimes="0;.1;.2;.3;.4;.6;.9;1" />
+			</defs>
+
+			<g filter="url(#f3)">
+				<path id="my-wave" filter="url(#f2)" class="wave" fill="rgba(100,100,100,.3)" stroke="#fff" stroke-width="1" stroke-linejoin="round"
+				stroke-linecap="round" />
+			</g>
+		</svg>
 	</div>
 
-	<svg width="600px" height="520" viewBox="80 40 300 400">
-		<path id="my-wave" class="wave" fill="rgba(100,100,100,.3)" stroke="#fff" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" />
-		<animate 
-			xlink:href="#my-wave"
-			attributeName="d"
-			from="[50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50]"
-			repeatCount="indefinite"/>
-	</svg>
-	
+
+
+
 	<script src="main.js"></script>
 </body>
 
