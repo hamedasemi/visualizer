@@ -1,44 +1,62 @@
 /* global $ */
 
-var graphData = [
-	[50, 50, 50, 50, 50, 50, 50, 50, 50],
-	[50, 50, 45, 25, 99, 25, 45, 50, 50],
-	[50, 50, 65, 45, 80, 45, 65, 50, 50],
-	[50, 50, 45, 65, 15, 65, 45, 50, 50],
-	[50, 50, 65, 45, 80, 45, 65, 50, 50],
-	[50, 50, 45, 65, 15, 65, 45, 50, 50],
-	[50, 50, 25, 65, 50, 65, 25, 50, 50],
-	[50, 50, 45, 65, 15, 65, 45, 50, 50],
-	[50, 50, 55, 30, 50, 30, 55, 50, 50],
-	[50, 50, 15, 65, 35, 65, 15, 50, 50],
-	[50, 50, 50, 50, 50, 50, 50, 50, 50]
-];
 
-var pathString = '';
+var graphData = [50,100,50,100,50];
+var heightOfGraph = 300;
 
-$(document).ready(function () {
-	updateGraph();
-});
+var newGraphData = [50,100,50,100,50];
 
-var heightOfGraph = 200;
-var widthOfGraph = 336;
-var updateGraph = function () {
-	for (var j = 0; j < graphData.length; j++) {
-		var returnString = 'M 0 ' + (heightOfGraph - (graphData[j][0] * 2) + 0);
-		var curveAmount = 15;
-		var xoffset = widthOfGraph / graphData.length;
-		for (var i = 1; i < graphData[j].length; i++) {
-			var thisDataPoint = heightOfGraph - (graphData[j][i] * 2) + 0;
-			returnString += " S " + (xoffset - curveAmount) + " " + thisDataPoint + " " + (xoffset++)+ " " + thisDataPoint;
-			xoffset += widthOfGraph / graphData[j].length;
-		}
-		if (j !== graphData.length - 1) {
+var oldReturnString = 'M 0 160 S 90 10 120 10 S 150 160 180 160 S 210 10 240 10 S 270 160 300 160 S 270 10 300 10';
 
-			returnString += '; \n';
-		}
-		pathString += returnString;
+
+function getRandom() {
+	var rand = Math.random() * 100;
+	console.log(rand);
+    return rand;
+}
+
+
+	
+
+function randomBars() {
+	oldReturnString = newGraphData;
+	
+	newGraphData = [];
+	
+    [].forEach.call(graphData, function () {
+		newGraphData.push(getRandom());
+    });
+}
+
+function run() {
+    randomBars();
+	// console.log(newGraphData);
+	newGraphData[0] = 50;
+	// newGraphData[2] = 50;
+	// newGraphData[4] = 50;
+	newGraphData[newGraphData.length-1] = 50;
+	var returnString = 'M 60 ' + (heightOfGraph - (graphData[0]*3) + 10);
+	var curveAmount = 50;
+	var xoffset = 150;
+	// console.log(returnString);
+	
+	for (var i = 1; i < newGraphData.length; i++) {
+		var thisDataPoint = heightOfGraph - (graphData[i]*3) + 10;
+		returnString += " S " + (xoffset - curveAmount) + " " + thisDataPoint + " " + xoffset + " " + thisDataPoint;
+		xoffset += 150;
 	}
-	console.log(pathString);
-	$('#animate').attr('values', pathString);
+	// var oldReturnString = $('animate').attr('to');
 
-};
+	$('animate').attr('from', 'M 50 150 S 90 10 120 10 S 150 160 180 160 S 210 10 240 10 S 270 160 150 150');
+	
+	$('#animate').attr('to', returnString);
+	
+	var oldReturnString = returnString;
+	
+	
+	$('#animate').attr('dur', '1000ms');
+
+    setTimeout(run, 1000);
+}
+
+run();

@@ -10,7 +10,6 @@ body {
 	justify-content: center;
 	background-size: cover;
 	height: 100%;
-	margin: 0;
 }
 
 
@@ -19,18 +18,8 @@ svg {
 	margin: auto;
 }
 
-svg path {
-	-webkit-filter: drop-shadow(0 0 7px #53BE12);
-}
-
 #container::before {
   content: "";
   display: inline-block;
   height: 100%;
-}
-
-
-.container {
-  width: 600px;
-  height: 400px;
 }
